@@ -1,7 +1,7 @@
 # SanWaf Sample Application
 
 
-###Run the sample application, in the SanwafSample project:
+Run the sample application, in the SanwafSample project:
  
 	mvn jetty:run
 
