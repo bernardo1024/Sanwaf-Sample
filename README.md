@@ -1,5 +1,7 @@
 # SanWaf Sample Application
 
+Build the application
+	mvn clean package
 
 Run the sample application, in the SanwafSample project:
  
