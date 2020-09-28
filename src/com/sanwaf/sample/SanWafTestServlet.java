@@ -1,5 +1,6 @@
 package com.sanwaf.sample;
 
+import org.owasp.encoder.Encode;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,7 +17,7 @@ public class SanWafTestServlet extends HttpServlet {
 
   static {
     try {
-      sanwaf = new Sanwaf(new com.sanwaf.log.LoggerSystemOut(), "/sanwaf-template.xml");
+      sanwaf = new Sanwaf(new com.sanwaf.log.LoggerSystemOut(), "/config/sanwaf-sample.xml");
     } catch (IOException ioe) {
       System.out.println("Exception Raised Instanciating Sanwaf: " + ioe.getMessage() + "; " + ioe);
     }
@@ -48,7 +49,7 @@ public class SanWafTestServlet extends HttpServlet {
         sanWafTrackingId = Sanwaf.getTrackingId(request);
         parmsInErrorJson = Sanwaf.getErrors(request);
       }
-      //note that there is no data encoding, thus code can be XSS'd
+
       an = request.getParameter("alphanumeric");
       anam = request.getParameter("alphanumericandmore");
       n = request.getParameter("numeric");
@@ -60,14 +61,14 @@ public class SanWafTestServlet extends HttpServlet {
     StringBuilder sb = new StringBuilder();
     sb.append("<html><body><h1>Sanwaf Test Page</h1>");
     sb.append("<br/><b>Enter data in the following inputs and submit to see errors caught by Sanwaf</b></br>");
-    sb.append("<form action='/sanwaf' method=get>");
+    sb.append("<form action='/sanwaf' method=post>");
     sb.append("<table>");
-    sb.append("<tr><td>AlphaNumeric </td><td><input name='alphanumeric' value='" + an + "'/></td></tr>");
-    sb.append("<tr><td>AlphaNumericAndMore (single quote allowed) </td><td><input name='alphanumericandmore' value='" + anam + "'/></td></tr>");
-    sb.append("<tr><td>Numeric </td><td><input name='numeric' value='" + n + "'/></td></tr>");
-    sb.append("<tr><td>NumericDelimited (coma delimiter) </td><td><input name='numericdelimited' value='" + nd + "'/></td></tr>");
-    sb.append("<tr><td>Char </td><td><input name='char' value='" + c + "'/></td></tr>");
-    sb.append("<tr><td>String </td><td><input name='string' value='" + s + "'/></td></tr>");
+    sb.append("<tr><td>AlphaNumeric </td><td><input name='alphanumeric' value='" + Encode.forHtmlAttribute(an) + "'/></td></tr>");
+    sb.append("<tr><td>AlphaNumericAndMore (single quote allowed) </td><td><input name='alphanumericandmore' value='" + Encode.forHtmlAttribute(anam) + "'/></td></tr>");
+    sb.append("<tr><td>Numeric </td><td><input name='numeric' value='" + Encode.forHtmlAttribute(n) + "'/></td></tr>");
+    sb.append("<tr><td>NumericDelimited (coma delimiter) </td><td><input name='numericdelimited' value='" + Encode.forHtmlAttribute(nd) + "'/></td></tr>");
+    sb.append("<tr><td>Char </td><td><input name='char' value='" + Encode.forHtmlAttribute(c) + "'/></td></tr>");
+    sb.append("<tr><td>String </td><td><input name='string' value='" + Encode.forHtmlAttribute(s) + "'/></td></tr>");
     sb.append("</table>");
     sb.append("<br/><input type='submit' value='Submit'/>");
     sb.append("</form>");
@@ -75,7 +76,7 @@ public class SanWafTestServlet extends HttpServlet {
     sb.append("<table><tr><th></th><th></th></tr>");
     sb.append("<tr><td><b>Error ID </b></td><td>").append(sanWafTrackingId).append("</td></tr>");
     sb.append("<tr><td><b>Errors (json) </b></td><td><pre>");
-    sb.append(htmlEscape(parmsInErrorJson).replaceAll("\\}\\,\\{", "\\}\\,\\<br\\/\\>\\{").replaceAll("\\}\\,\\{", "\\}\\,\\<br\\/\\>\\{"));
+    sb.append(Encode.forHtmlContent(parmsInErrorJson).replaceAll("\\}\\,\\{", "\\}\\,\\<br\\/\\>\\{"));
     sb.append("</pre></td></tr>");
     sb.append("</table>");
     sb.append("<br/></body></html>");
@@ -84,11 +85,4 @@ public class SanWafTestServlet extends HttpServlet {
     out.print(sb.toString());
   }
 
-  private static String htmlEscape(String s) {
-    s = s.replaceAll("&", "&amp");
-    s = s.replaceAll("\"", "&quot");
-    s = s.replaceAll("<", "&lt");
-    s = s.replaceAll(">", "&gt");
-    return s;
-  }
 }
