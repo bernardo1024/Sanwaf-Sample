@@ -17,7 +17,7 @@ public class SanWafTestServlet extends HttpServlet {
 
   static {
     try {
-      sanwaf = new Sanwaf(new com.sanwaf.log.LoggerSystemOut(), "/config/sanwaf-sample.xml");
+      sanwaf = new Sanwaf(new com.sanwaf.log.LoggerSystemOut(), "/sanwaf-sample.xml");
     } catch (IOException ioe) {
       System.out.println("Exception Raised Instanciating Sanwaf: " + ioe.getMessage() + "; " + ioe);
     }
