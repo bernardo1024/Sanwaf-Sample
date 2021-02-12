@@ -6,7 +6,7 @@
 	<groupId>com.sanwaf</groupId>
 	<artifactId>sanwaf-sample</artifactId>
 	<name>Sanwaf Sample Application using Jetty</name>
-	<version>1.0</version>
+	<version>1.1</version>
 
 	<prerequisites>
 		<maven>3.0</maven>
@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>com.sanwaf</groupId>
 			<artifactId>sanwaf</artifactId>
-			<version>0.1.1</version>
+			<version>0.1.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
