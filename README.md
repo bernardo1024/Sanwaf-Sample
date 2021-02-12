@@ -1,5 +1,8 @@
 # SanWaf Sample Application
 
+Preconditions
+	Follow the readme in the Sanwaf project to clone the repo and install the app to your local maven repo
+	
 Build the application
 
 	mvn clean package
