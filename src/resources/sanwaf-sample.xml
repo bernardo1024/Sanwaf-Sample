@@ -74,36 +74,37 @@
 						
 		<secured>
 			<parameters>
-				<item><name></name><type></type><max></max><min></min><msg></msg><path></path></item>
+				<item><name></name><type></type><max></max><min></min><msg></msg><uri></uri></item>
 			</parameters>
 			<headers>
-				<item><name></name><type></type><max></max><min></min><msg></msg><path></path></item>
+				<item><name></name><type></type><max></max><min></min><msg></msg><uri></uri></item>
 			</headers>
 			<cookies>
-				<item><name></name><type></type><max></max><min></min><msg></msg><path></path></item>
+				<item><name></name><type></type><max></max><min></min><msg></msg><uri></uri></item>
 			</cookies>
 		</secured>
 		
 	Item Format:
 	***********
-		<item><name></name><type></type><max></max><min></min><msg></msg><path></path></item>
+		<item><name></name><type></type><max></max><min></min><msg></msg><uri></uri></item>
 	where
 	
 		<name></name>	- parameter/header/cookie name
-						- specify many 'names' in one item tag by using the ':::' delimiter.  
+						- to specify many 'names' in one item tag by using the ':::' delimiter.  
 						- for example:
 							- <name>parameter1</name>
 							- <name>parameter1:::parameter2:::parameter3</name> 
-		<type></type>	- the parameter datatype (see Custom Datatypes above) (defaults to 's' if not specified)
+		<type></type>	- the parameter data type (see Custom Data types above) (defaults to 's' if not specified)
 		<max></max>		- the max length allowed for this parameter (defaults to Interger.MAX_VALUE if not specified)
 		<min></min>		- the min length allowed for this parameter (defaults to 0 if not specified) 
 		<msg></msg>		- the error message for the parameter(s) (uses the shield or global error message is not specified)
-		<path></path>	- the path that must exist for the parameter evaluation to occur 
+		<uri></uri>	- the path that must exist for the parameter evaluation to occur 
+					- to specify many uri's for one item use the ':::' delimiter.
 		
 	EXAMPLE:
 	********
 		<parameters>
-			<item><name>telephone</name><type>r{telephone}</type><max>1</max><min>12</min><msg>Invalid Telephone number entered, must be in the format 555-555-5555</msg><path>/put/accounts</path></item>
+			<item><name>telephone</name><type>r{telephone}</type><max>1</max><min>12</min><msg>Invalid Telephone number entered, must be in the format 555-555-5555</msg><uri>/put/accounts</uri></item>
 			<item><name>fname:::lname</name><type>s</type><max>30</max><min>1</min><msg>must be between 1-30 chars</msg></item>
 			<item><name>sex</name><type>k{male,female,other}</type><msg>only male/female/other are allowed</msg></item>
 			<item><name>count</name><type>n</type><max>0</max><min>1</min></item>
@@ -128,7 +129,7 @@
 	(Delimited list of Numbers)
 		n{}	    DESCRIPTION:	A character separated list of numbers
 				FORMAT:			n{<separator char>}
-								Note: the min & max settings applies per delimted value  
+								Note: the min & max settings applies per delimited value  
 				EXAMPLE: 		using n{,}, -321.123,0.000,123,45 is valid
 												  
 	(Alphanumeric)
@@ -175,6 +176,7 @@
 
 
 
+
 <sanwaf>
 	<global-settings>
 		<!-- Master Enabled Flag; must be true for Sanwaf to detect issues -->
@@ -214,29 +216,32 @@
 	<!-- List of shields configured to protect your system. You can use single or multiple shields to logically organize your system -->
 	<shields>
 		<shield>
-			<name>XSS</name>
-			
-			<!-- Minimum length of parameter to trigger this shield -->
-			<minLen>0</minLen>
-			
-			<!-- Maximum length of parameter to trigger this shield; Enter -1 to use max supported range or Integer.MAX_VALUE -->
-			<maxLen>-1</maxLen>
-	
-			<!-- Localized error messages for this shield - overrides default ones -->
-			<!--errorMessages>
-				<char></char>
-				<numeric></numeric>
-				<numericDelimited></numericDelimited>
-				<alphanumeric></alphanumeric>
-				<alphanumericAndMore></alphanumericAndMore>
-				<constant></constant>
-				<string></string>
-				<regex></regex>
-				<java></java>
-			</errorMessages-->
+			<shield-settings>
+		        <!-- Name of the Shield.  Must be unique. -->
+				<name>XSS</name>
+				
+				<!-- Minimum length of parameter to trigger this shield -->
+				<minLen>0</minLen>
+				
+				<!-- Maximum length of parameter to trigger this shield; Enter -1 to use max supported range or Integer.MAX_VALUE -->
+				<maxLen>-1</maxLen>
+		
+				<!-- Localized error messages for this shield - overrides default ones -->
+				<!--errorMessages>
+					<char></char>
+					<numeric></numeric>
+					<numericDelimited></numericDelimited>
+					<alphanumeric></alphanumeric>
+					<alphanumericAndMore></alphanumericAndMore>
+					<constant></constant>
+					<string></string>
+					<regex></regex>
+					<java></java>
+				</errorMessages-->
+			</shield-settings>
 	
 			<!-- Regex configuration Section -->
-			<regex>
+			<regex-config>
 				<!-- Minimum length of parameter to trigger the regex processing -->
 				<minLen>0</minLen>
 				
@@ -285,7 +290,7 @@
 						<value><![CDATA[(?:[0-9]{3})(?:[ .-]{1})(?:[0-9]{3})(?:[ .-]{1})(?:[0-9]{4})]]></value>
 					</item>
 				</customPatterns>
-			</regex>
+			</regex-config>
 	
 			<metadata>
 				<!-- Indicate what request portions are protected -->
