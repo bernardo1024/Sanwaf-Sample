@@ -1,6 +1,7 @@
 package com.sanwaf.sample;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -14,17 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.sanwaf.core.Sanwaf;
 
 public class SanwafFilter implements Filter {
-	private static Sanwaf sanwaf;
-
-	static {
-	}
+  private static final Logger LOGGER = Logger.getLogger(SanwafFilter.class.getName());
+  private static Sanwaf sanwaf;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		try {
-			sanwaf = new Sanwaf(new com.sanwaf.log.SimpleLogger(), "/sanwaf.xml");
+	  try {
+	    sanwaf = new Sanwaf(new com.sanwaf.log.SimpleLogger(), "/sanwaf.xml");
 		} catch (IOException ioe) {
-			System.out.println("Exception Raised Instanciating Sanwaf: " + ioe.getMessage() + "; " + ioe);
+		  LOGGER.log(java.util.logging.Level.SEVERE, "Exception Raised Instanciating Sanwaf: {0}", ioe.getMessage());
 		}
 	}
 
@@ -33,29 +32,19 @@ public class SanwafFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
-System.out.println("doFilter Fired.");
 		
-  if (request.getParameterNames() != null && request.getParameterNames().hasMoreElements()) {
+		if (request.getParameterNames() != null && request.getParameterNames().hasMoreElements()) {
 			if (sanwaf.isThreatDetected(request)) {
-			  System.out.println("doFilter Fired. threat detected");
-				Error.handle(request, response);
-				return;
+			  Error.handle(request, response);
 			}
 	    else {
-        System.out.println("doFilter Fired. threat NOT detected");
-	      Success.handle(request, response);
-	      return;
+        Success.handle(request, response);
 	    }
+      return;
 		}
-    else {
-      //Success.handle(request, response);
-    }
-    System.out.println("doFilter Fired. doing filter chain");
-		
 		filterChain.doFilter(servletRequest, servletResponse);
 	}
 
 	@Override
 	public void destroy() {}
-
 }
