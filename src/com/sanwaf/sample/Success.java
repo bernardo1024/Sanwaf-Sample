@@ -19,5 +19,4 @@ public class Success {
     PrintWriter out = response.getWriter();
     out.print(sb.toString());
   }
-
 }

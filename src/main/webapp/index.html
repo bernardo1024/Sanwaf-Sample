@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
@@ -59,6 +58,7 @@
       <input type="button" value="hide errors" onclick="document.getElementById('sanwafuierrorwrapper').style.display='none';"/>
     </div>
     
+    <!-- Sanwaf-ui code - STEP 4. add sanwaf attributes (data-sw*) to configure elements;  -->
     <form id="testform" method="post" action="submit/test.html">
       <table class="table-instructions">
         <tr>
@@ -109,16 +109,13 @@
           <td><b></b></td>
           <td>Only a proper email address allowed<br/>data-sw-type="x{^[^\s@]+@[^\s@]+$}"</td>
         </tr>
-
-
         <tr>
           <td><label for="format">Format</label></td>  
           <td><input type="text" id="format" name="format" size="20" data-sw-display="Format" data-sw-type="f{(###) ###-####}" /></td>
           <td><b></b></td>
           <td>Only properly formated characters allowed<br/>data-sw-type="(###) ###-####" </td>
         </tr>
-
-       <tr>
+       	<tr>
           <td><label for="equalityParent">Equality Relationship<br/>(parent)</label></td>
           <td><input type="text" id="equalityParent" name="equalityParent" size="20" data-sw-display="Parent" data-sw-type="s" data-sw-max="10" data-sw-min="4" /></td>
           <td><b></b></td>
@@ -142,26 +139,22 @@
           <td><b></b></td>
           <td>If Parent =  &quot;yes&quot;, Child becomes required<br/>data-sw-related="dependencyParent:Yes"</td>
         </tr>
-
         <tr>
           <td><label for="required">Required</label></td>
           <td><input type="text" id="required" name="required" size="20" data-sw-display="Required" data-sw-type="s" data-sw-req="true" data-sw-max="30" data-sw-min="0" /></td>
           <td><b></b></td>
           <td>Is a requried field<br/>data-sw-req="true"</td>
         </tr>
-
-
-
         <tr>
           <td></td>
+		  <!-- Sanwaf-ui code - STEP 5. call sanwaf-ui to validate form: isSanwafUiFormValid(testform)  -->
           <td><input type="submit" value="Validate" onClick="if(document.getElementById('sanwafUi').checked){return isSanwafUiFormValid(testform)}"/></td>
           <td></td>
           <td>Click the validate button to see Sanwaf in action<br/>Use the checkboxes below to control the behavior</td>
         </tr>
       </table>
     </form>
-
-    
+   
     <script>
       function togleDisplayType(refresh){
         var att = document.createAttribute("data-errorActions");
