@@ -16,35 +16,35 @@ import com.sanwaf.core.Sanwaf;
 
 public class SanwafFilter implements Filter {
   private static final Logger LOGGER = Logger.getLogger(SanwafFilter.class.getName());
-  private static Sanwaf sanwaf;
+  private Sanwaf sanwaf;
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-	  try {
-	    sanwaf = new Sanwaf(new com.sanwaf.log.SimpleLogger(), "/sanwaf.xml");
-		} catch (IOException ioe) {
-		  LOGGER.log(java.util.logging.Level.SEVERE, "Exception Raised Instanciating Sanwaf: {0}", ioe.getMessage());
-		}
-	}
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {
+    try {
+      sanwaf = new Sanwaf(new com.sanwaf.log.SimpleLogger(), "/sanwaf.xml");
+    } catch (IOException ioe) {
+      LOGGER.log(java.util.logging.Level.SEVERE, "Exception Raised Instanciating Sanwaf: {0}", ioe.getMessage());
+    }
+  }
 
-	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
-			throws IOException, ServletException {
-		HttpServletRequest request = (HttpServletRequest) servletRequest;
-		HttpServletResponse response = (HttpServletResponse) servletResponse;
-		
-		if (request.getParameterNames() != null && request.getParameterNames().hasMoreElements()) {
-			if (sanwaf.isThreatDetected(request)) {
-			  Error.handle(request, response);
-			}
-	    else {
-        Success.handle(request, response);
-	    }
+  @Override
+  public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    HttpServletRequest request = (HttpServletRequest) servletRequest;
+    HttpServletResponse response = (HttpServletResponse) servletResponse;
+
+    if (request.getParameterNames() != null && request.getParameterNames().hasMoreElements()) {
+      if (sanwaf.isThreatDetected(request)) {
+        Error.handle(request, response);
+      } else {
+        Success.handle(response);
+      }
       return;
-		}
-		filterChain.doFilter(servletRequest, servletResponse);
-	}
+    }
+    filterChain.doFilter(servletRequest, servletResponse);
+  }
 
-	@Override
-	public void destroy() {}
+  @Override
+  public void destroy() {
+    //nothing to do
+  }
 }

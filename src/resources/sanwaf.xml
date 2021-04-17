@@ -68,8 +68,8 @@
 				</caseSensitive>
 
 				<secured>
+					<endpoints>
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-START~~~ -->
-<endpoints>
 <endpoint>
 <uri>/submit/test.html</uri>
 <items>
@@ -87,8 +87,8 @@
 <item><name>required</name><type>s</type><max>30</max><min>1</min><req>true</req></item>
 </items>
 </endpoint>
-</endpoints>
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-END~~~ -->
+					</endpoints>
 					<parameters>
 					</parameters>
 					<headers>
