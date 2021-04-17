@@ -1,6 +1,6 @@
 # SanWaf Sample Application
 
-Precondition: See the readme.md in the Sanwaf project for instructions on cloning and installing the jar to your local maven repo
+Precondition: See the readme.md in the Sanwaf-Server project for instructions on cloning and installing the jar to your local maven repo
 	
 Build the application
 
