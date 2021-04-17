@@ -41,3 +41,5 @@ Precondition: See the readme.md in the Sanwaf-Server project for instructions on
 
 3. Open a browser and navigate to [http://127.0.0.1:8080](http://127.0.0.1:8080)
 
+        http://127.0.0.1:8080
+
