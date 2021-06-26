@@ -5,7 +5,7 @@
 	<global-settings>
 		<enabled>true</enabled>
 		<verbose>true</verbose>
-		<app.version>Sanwaf-Sample-1.0.5</app.version>
+		<app.version>Sanwaf-Sample-1.5</app.version>
 
 		<errorHandling>
 			<provideTrackId>true</provideTrackId>
@@ -81,6 +81,8 @@
 <item><name>constant</name><type>k{y,n}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>regex</name><type>x{^[^\s@]+@[^\s@]+$}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg>Must be a proper email address</msg><req></req><related></related></item>
 <item><name>format</name><type>f{(###) ###-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>format2</name><type>f{#[1-12] / #[21-35]}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>format3</name><type>f{#####||#####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>equalityParent</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>equalityChild</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related>equalityParent:=</related></item>
 <item><name>dependencyChild</name><type>s</type><max>30</max><min>0</min><msg>Must be entered if Parent is enered</msg><related>dependencyParent:Yes</related></item>

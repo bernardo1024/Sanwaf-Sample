@@ -115,6 +115,18 @@
           <td><b></b></td>
           <td>Only properly formated characters allowed<br/>data-sw-type="(###) ###-####" </td>
         </tr>
+        <tr>
+          <td><label for="format2">Format Restricted</label></td>  
+          <td><input type="text" id="format2" name="format2" size="20" data-sw-display="Format" data-sw-type="f{#[1-12] / #[21-35]}" /></td>
+          <td><b></b></td>
+          <td>Only properly formated characters allowed<br/>data-sw-type="#[1-12] / #[21-35]" </td>
+        </tr>
+        <tr>
+          <td><label for="format3">Multiple Formats</label></td>  
+          <td><input type="text" id="format3" name="format3" size="20" data-sw-display="Format" data-sw-type="f{#####||#####-####}" /></td>
+          <td><b></b></td>
+          <td>Only properly formated characters allowed for the give formats:<br/>data-sw-type="##### || #####-####" </td>
+        </tr>
        	<tr>
           <td><label for="equalityParent">Equality Relationship<br/>(parent)</label></td>
           <td><input type="text" id="equalityParent" name="equalityParent" size="20" data-sw-display="Parent" data-sw-type="s" data-sw-max="10" data-sw-min="4" /></td>
