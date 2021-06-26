@@ -252,6 +252,8 @@ function buildErrorItemsArray(e, err, actions, suppressRender) {
       setErrorItem(e, err, errorItem, err.type_c, false, "", "");
     } else if (e.swType == "n") {
       setErrorItem(e, err, errorItem, err.type_n, false, "", "");
+    } else if (e.swType == "i") {
+      setErrorItem(e, err, errorItem, err.type_i, false, "", "");
     } else if (e.swType == "a") {
       setErrorItem(e, err, errorItem, err.type_a, false, "", "");
     }
@@ -259,6 +261,8 @@ function buildErrorItemsArray(e, err, actions, suppressRender) {
     var extra = parse(e.swType, "{", "}");
     if (type == "n{") {
       setErrorItem(e, err, errorItem, err.type_nn, false, renderSpecialChars(extra), "");
+    } else if (type == "i{") {
+        setErrorItem(e, err, errorItem, err.type_ii, false, renderSpecialChars(extra), "");
     } else if (type == "a{") {
       setErrorItem(e, err, errorItem, err.type_aa, false, renderSpecialChars(extra), "");
     } else if (type == "k{") {
@@ -477,6 +481,8 @@ function loadGlobalErrorSettings(forElementOnly) {
   err.type_c = getAttribute(config, "data-errorTypeChar", "Must be a single character");
   err.type_n = getAttribute(config, "data-errorTypeNumeric", "Must be numeric");
   err.type_nn = getAttribute(config, "data-errorTypeNumericDelimited", "Must be a list of numeric value(s) delimted by %1");
+  err.type_i = getAttribute(config, "data-errorTypeInteger", "Must be an integer");
+  err.type_ii = getAttribute(config, "data-errorTypeIntegerDelimited", "Must be a list of integer value(s) delimted by %1");
   err.type_a = getAttribute(config, "data-errorTypeAlphanumeric", "Must be alphanumeric");
   err.type_aa = getAttribute(config, "data-errorTypeAlphanumericAndMore", "Must be alphanumeric or the following: %1");
   err.type_k = getAttribute(config, "data-errorTypeConstant", "Must be must be one of the following: \"%1\"");
@@ -1038,13 +1044,13 @@ function isCharValid(e, err) {
   return true;
 }
 
-function isNumberValid(e, err) {
+function isNumberValid(e, err, isInt) {
   if (!e || e.value.length == 0) {
     return true;
   }
   for (var i = 0; i < e.value.length; i++) {
     var c = e.value.charAt(i);
-    if (c >= '0' && c <= '9' || c == "." || c == "-" || c == ",") {
+    if (c >= '0' && c <= '9' || c == "-" || (!isInt && (c == "."  || c == ","))) {
       continue;
     } else {
       e.value = e.value.substring(0, i) + e.value.substring(i + 1, e.value.length);
@@ -1057,7 +1063,7 @@ function isNumberValid(e, err) {
   return true;
 }
 
-function isNumberDelimitedValid(e, err) {
+function isNumberDelimitedValid(e, err, isInt) {
   if (!e || e.value.length == 0) {
     return;
   }
@@ -1066,7 +1072,7 @@ function isNumberDelimitedValid(e, err) {
   for (var i = 0; i < nums.length; i++) {
     for (var j = 0; j < e.value.length; j++) {
       var c = e.value.charAt(j);
-      if (c >= '0' && c <= '9' || c == "." || c == "-" || c == "," || c == sep) {
+      if (c >= '0' && c <= '9' || c == "-" || c == sep || (!isInt && (c == "."  || c == ","))) {
         continue;
       } else {
         e.value = e.value.substring(0, j + i) + e.value.substring(j + i + 1, e.value.length);
@@ -1215,9 +1221,13 @@ function isElementValid(e, err) {
   if (type == 'c') {
     isCharValid(e, err);
   } else if (type == 'n') {
-    isNumberValid(e, err);
+    isNumberValid(e, err, false);
   } else if (type == 'n{') {
-    isNumberDelimitedValid(e, err);
+    isNumberDelimitedValid(e, err, false);
+  } else if (type == 'i') {
+    isNumberValid(e, err, true);
+  } else if (type == 'i{') {
+    isNumberDelimitedValid(e, err, true);
   } else if (type == 'a') {
     isAlphanumericValid(e, err);
   } else if (type == 'a{') {

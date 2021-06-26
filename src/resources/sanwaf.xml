@@ -72,10 +72,13 @@
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-START~~~ -->
 <endpoint>
 <uri>/submit/test.html</uri>
+<strict>less</strict>
 <items>
 <item><name>char</name><type>c</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>numeric</name><type>n</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>numericdelimited</name><type>n{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>integer</name><type>i</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>integerdelimited</name><type>i{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>alphanumeric</name><type>a</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>alphanumericandmore</name><type>a{'\s!}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>constant</name><type>k{y,n}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
@@ -85,6 +88,7 @@
 <item><name>format3</name><type>f{#####||#####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>equalityParent</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>equalityChild</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related>equalityParent:=</related></item>
+<item><name>dependencyParent</name><type>k{Yes,No}</type><max></max><min></min><msg></msg><related></related></item>
 <item><name>dependencyChild</name><type>s</type><max>30</max><min>0</min><msg>Must be entered if Parent is enered</msg><related>dependencyParent:Yes</related></item>
 <item><name>required</name><type>s</type><max>30</max><min>1</min><req>true</req></item>
 </items>
