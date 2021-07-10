@@ -71,85 +71,104 @@
           <td><label for="char">Character</label></td>
           <td><input type="text" id="char" name="char" size="1" data-sw-display="char" data-sw-type="c" /></td>
           <td><b></b></td>
-          <td>Only a single character allowed<br/>data-sw-type="c"</td>
+          <td>Only a single character allowed<br/>data-sw-type = "c"</td>
         </tr>
         <tr>
           <td><label for="numeric">Numeric</label></td>
           <td><input type="text" id="numeric" name="numeric" size="20" data-sw-display="numeric" data-sw-type="n" /></td>
           <td><b></b></td>
-          <td>Only numeric values allowed<br/>data-sw-type="n"</td>
+          <td>Only numeric values allowed<br/>data-sw-type = "n"</td>
+        </tr>
+        <tr>
+          <td><label for="numericMaxMin">Numeric (max &amp; min values set)</label></td>
+          <td><input type="text" id="numericMaxMin" name="numericMaxMin" size="20" data-sw-display="Numeric MaxMin" data-sw-type="n" data-sw-min-value="1" data-sw-max-value="12" /></td>
+          <td><b></b></td>
+          <td>Only numeric values allowed within the 1-12 range<br/>data-sw-type = "n" data-min-value = "1" data-max-value = "12"</td>
         </tr>
         <tr>
           <td><label for="numericdelimited">Numeric Delimited</label></td>
           <td><input type="text" id="numericdelimited" name="numericdelimited" size="20" data-sw-display="numericdelimited" data-sw-type="n{,}" /></td>
           <td><b></b></td>
-          <td>Only numeric values delimited by a "," allowed<br/>data-sw-type="n{,}"</td>
+          <td>Only numeric values delimited by a "," allowed<br/>data-sw-type = "n{,}"</td>
         </tr>
         <tr>
           <td><label for="integer">Integer</label></td>
           <td><input type="text" id="integer" name="integer" size="20" data-sw-display="integer" data-sw-type="i" /></td>
           <td><b></b></td>
-          <td>Only integer values allowed<br/>data-sw-type="i"</td>
+          <td>Only integer values allowed<br/>data-sw-type = "i"</td>
         </tr>
         <tr>
           <td><label for="integerdelimited">Integer Delimited</label></td>
           <td><input type="text" id="integerdelimited" name="integerdelimited" size="20" data-sw-display="integerdelimited" data-sw-type="i{,}" /></td>
           <td><b></b></td>
-          <td>Only integer values delimited by a "," allowed<br/>data-sw-type="i{,}"</td>
+          <td>Only integer values delimited by a "," allowed<br/>data-sw-type = "i{,}"</td>
         </tr>
         <tr>
           <td><label for="alphanumeric">Alphanumeric</label></td>
           <td><input type="text" id="alphanumeric" name="alphanumeric" size="20" data-sw-display="alphanumeric" data-sw-type="a" /></td>
           <td><b></b></td>
-          <td>Only alphanumeric values allowed<br/>data-sw-type="a"</td>
+          <td>Only alphanumeric values allowed<br/>data-sw-type = "a"</td>
         </tr>
         <tr>
           <td><label for="alphanumericandmore">Alphanumeric &amp; More</label></td>
           <td><input type="text" id="alphanumericandmore" name="alphanumericandmore" size="20" data-sw-display="alphanumericandmore" data-sw-type="a{'\s!}" /></td>
           <td><b></b></td>
-          <td>Only alphanumeric and additional characters: [space], [exclamation], and [single quote] allowed<br/>data-sw-type="a{\s!'}"</td>
+          <td>Only alphanumeric and additional characters: [space], [exclamation], and [single quote] allowed<br/>data-sw-type = "a{\s!'}"</td>
         </tr>
         <tr>
           <td><label for="constant">Constant</label></td>
           <td><input type="text" id="constant" name="constant" size="20" data-sw-display="constant" data-sw-type="k{y,n}" /></td>
           <td><b></b></td>
-          <td>Only the values: "y", "n" allowed<br/>data-sw-type="k{y,n}"</td>
+          <td>Only the values: "y", "n" allowed<br/>data-sw-type = "k{y,n}"</td>
         </tr>
         <tr>
           <td><label for="regex">Regex</label></td>
           <td><input type="text" id="regex" name="regex" size="20" data-sw-display="regex" data-sw-type="x{^[^\s@]+@[^\s@]+$}" data-sw-err-msg="Must be a proper email address"/></td>
           <td><b></b></td>
-          <td>Only a proper email address allowed<br/>data-sw-type="x{^[^\s@]+@[^\s@]+$}"</td>
+          <td>Only a proper email address allowed<br/>data-sw-type = "x{^[^\s@]+@[^\s@]+$}"</td>
         </tr>
         <tr>
           <td><label for="format">Format</label></td>  
           <td><input type="text" id="format" name="format" size="20" data-sw-display="Format" data-sw-type="f{(###) ###-####}" /></td>
           <td><b></b></td>
-          <td>Only properly formated characters allowed<br/>data-sw-type="(###) ###-####" </td>
+          <td>Only properly formated characters allowed<br/>data-sw-type = "(###) ###-####" </td>
         </tr>
         <tr>
           <td><label for="format2">Format Restricted</label></td>  
           <td><input type="text" id="format2" name="format2" size="20" data-sw-display="Format" data-sw-type="f{#[1-12] / #[21-35]}" /></td>
           <td><b></b></td>
-          <td>Only properly formated characters allowed<br/>data-sw-type="#[1-12] / #[21-35]" </td>
+          <td>Only properly formated characters allowed<br/>data-sw-type = "#[1-12] / #[21-35]" </td>
         </tr>
         <tr>
           <td><label for="format3">Multiple Formats</label></td>  
           <td><input type="text" id="format3" name="format3" size="20" data-sw-display="Format" data-sw-type="f{#####||#####-####}" /></td>
           <td><b></b></td>
-          <td>Only properly formated characters allowed for the give formats:<br/>data-sw-type="##### || #####-####" </td>
+          <td>Only properly formated characters allowed for the given formats:<br/>data-sw-type = "##### || #####-####" </td>
+        </tr>
+
+        <tr>
+          <td><label for="dependentFormatParent">Dependent Format Parent</label></td>  
+          <td><select name="dependentFormatParent" id="dependentFormatParent" data-sw-display="Dependent Format Parent" data-sw-type="k{USA,Canada}"><option value="USA">USA</option><option value="Canada">Canada</option></select></td>
+          <td><b></b></td>
+          <td>The parent value determines the format to be used on the child (see below)</td>
+        </tr>
+        <tr>
+          <td><label for="dependentFormatChild">Dependent Format Child</label></td>  
+          <td><input type="text" id="dependentFormatChild" name="dependentFormatChild" size="20" data-sw-display="Dependent Format Child" data-sw-type="d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}" /></td>
+          <td><b></b></td>
+          <td>If the Parent is USA, format will be ##### or #####-####; if Parent is Canada, format will be: A#A-#A#<br/>data-sw-type = "d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}"</td>
         </tr>
        	<tr>
           <td><label for="equalityParent">Equality Relationship<br/>(parent)</label></td>
           <td><input type="text" id="equalityParent" name="equalityParent" size="20" data-sw-display="Parent" data-sw-type="s" data-sw-max="10" data-sw-min="4" /></td>
           <td><b></b></td>
-          <td>Max = 10 chars, Min = 4 chars. If entered, child must have the same value<br/>data-sw-type="s"</td>
+          <td>If parent entered, child must have the same value<br/>data-sw-type = "s" data-sw-min = "4" data-sw-max = "10"</td>
         </tr>
         <tr>
           <td><label for="equalityChild">Equality Relationship<br/>(child)</label></td>
           <td><input type="text" id="equalityChild" name="equalityChild" size="20" data-sw-display="Child" data-sw-type="s" data-sw-related="equalityParent:=" data-sw-max="10" data-sw-min="4" /></td>
           <td><b></b></td>
-          <td>Must equal Parent value (if set)<br/>data-sw-related="equalityParent:="</td>
+          <td>Must equal Parent value (if set)<br/>data-sw-related="equalityParent : ="<br/>Note if you want to disallow cut &amp; paste operations, use the html attributes: onpaste="return false;" ondrop="return false;""</td>
         </tr>
         <tr>
           <td><label for="dependencyParent">Dependency Relationship<br/>(parent)</label></td>
@@ -161,13 +180,13 @@
           <td><label for="dependencyChild">Dependency Relationship<br/>(child)</label></td>
           <td><input type="text" id="dependencyChild" name="dependencyChild" size="20" data-sw-display="Chid" data-sw-type="s" data-sw-max="30" data-sw-min="0" data-sw-related="dependencyParent:Yes" data-sw-err-msg="Must be entered if Parent is enered" /></td>
           <td><b></b></td>
-          <td>If Parent =  &quot;yes&quot;, Child becomes required<br/>data-sw-related="dependencyParent:Yes"</td>
+          <td>If Parent =  &quot;yes&quot;, Child becomes required<br/>data-sw-related = "dependencyParent:Yes"</td>
         </tr>
         <tr>
           <td><label for="required">Required</label></td>
           <td><input type="text" id="required" name="required" size="20" data-sw-display="Required" data-sw-type="s" data-sw-req="true" data-sw-max="30" data-sw-min="0" /></td>
           <td><b></b></td>
-          <td>Is a requried field<br/>data-sw-req="true"</td>
+          <td>Is a requried field<br/>data-sw-req = "true"</td>
         </tr>
         <tr>
           <td></td>
@@ -252,11 +271,11 @@
       </tr>
     </table>
     <br/>
+    &nbsp;&nbsp;For addition Sanwaf UI documentation: <a href="https://bernardo1024.github.io/">Sanwaf UI Help</a>
     <br/>
-    <br/>
-    
+    <h6 id="top" style="text-align: center;">Version: 0.0.1<BR>&copy; 2021 Bernardo Sanchez (bernardo.toronto@owasp.org)</h6>
     <!-- sanwaf-ui code - STEP 6. initialize sanwaf-ui (sets event listeners) -->
     <script> initSanwafui(); </script>
-    
+	    
   </body>
 </html>
