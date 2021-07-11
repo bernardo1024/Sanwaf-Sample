@@ -12,28 +12,35 @@
 		<maven>3.0</maven>
 	</prerequisites>
 
+	<properties>
+		<jetty.version>9.4.6.v20170531</jetty.version>
+		<apache.tomcat.version>7.0.59</apache.tomcat.version>
+		<sanwaf.version>0.1.6</sanwaf.version>
+		<owasp.encoder.version>1.2.2</owasp.encoder.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 		    <groupId>org.eclipse.jetty</groupId>
 		    <artifactId>jetty-server</artifactId>
-		    <version>9.4.6.v20170531</version>
+		    <version>${jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-servlet-api</artifactId>
-			<version>7.0.59</version>
+			<version>${apache.tomcat.version}</version>
 			<scope>provided</scope>
 		</dependency>		
 		<dependency>
 			<groupId>com.sanwaf</groupId>
 			<artifactId>sanwaf</artifactId>
-			<version>0.1.6</version>
+			<version>${sanwaf.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
     		<groupId>org.owasp.encoder</groupId>
     		<artifactId>encoder</artifactId>
-    		<version>1.2.2</version>
+    		<version>${owasp.encoder.version}</version>
 		</dependency>
 	</dependencies>
 
