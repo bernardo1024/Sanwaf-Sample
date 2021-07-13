@@ -79,7 +79,6 @@
 <item><name>char</name><type>c</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>numeric</name><type>n</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>numericMaxMin</name><type>n</type><max></max><min></min><max-value>12</max-value><min-value>1</min-value><msg></msg><req></req><related></related></item>
-
 <item><name>numericdelimited</name><type>n{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>integer</name><type>i</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>integerdelimited</name><type>i{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
@@ -88,11 +87,11 @@
 <item><name>constant</name><type>k{y,n}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>regex</name><type>x{^[^\s@]+@[^\s@]+$}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg>Must be a proper email address</msg><req></req><related></related></item>
 <item><name>format</name><type>f{(###) ###-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>format2</name><type>f{#[1-12] / #[21-35]}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>format3</name><type>f{#####||#####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>formatRangeRestricted</name><type>f{#[1-12] / #[21-35]}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>formatNumberRestricted</name><type>f{#[3,4,5,6]###-####-####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
+<item><name>formatMultiple</name><type>f{#####||#####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>dependentFormatParent</name><type>k{USA,Canada}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>dependentFormatChild</name><type>d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-
 <item><name>equalityParent</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
 <item><name>equalityChild</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related>equalityParent:=</related></item>
 <item><name>dependencyParent</name><type>k{Yes,No}</type><max></max><min></min><msg></msg><related></related></item>
