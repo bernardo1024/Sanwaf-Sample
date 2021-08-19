@@ -4,35 +4,28 @@
 	metadata-complete="false" version="3.1">
 	<display-name>Sanwaf</display-name>
 	<description>Sanwaf Sample Application</description>
-
 	<welcome-file-list>
     	<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-	
 	<listener>
 		<listener-class>org.eclipse.jetty.servlet.listener.ELContextCleaner</listener-class>
 	</listener>
 	<listener>
 		<listener-class>org.eclipse.jetty.servlet.listener.IntrospectorCleaner</listener-class>
 	</listener>
-
     <filter>
         <filter-name>SanwafFilter</filter-name>
         <filter-class>com.sanwaf.sample.SanwafFilter</filter-class>
     </filter>
-    
     <filter-mapping>
         <filter-name>SanwafFilter</filter-name>
         <url-pattern>/submit/*</url-pattern>
     </filter-mapping>
-    
     <servlet-mapping>
       <servlet-name>default</servlet-name>
       <url-pattern>/*</url-pattern>
    </servlet-mapping>
-	
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
-
 </web-app>

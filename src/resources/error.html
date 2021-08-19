@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<style>* { Background : #322f2f; color: #d3d0d0;font-family: Arial; }  body { font-size: 1em; }</style>
+	    <script src="/table-error.js"></script>
+	</head>
+
+	<body>
+		<h1>Oops! an error occurred...</h1>
+
+		<b>The following are in error</b><br/>
+		<div id='table'></div>
+
+		<script>
+			document.getElementById('table').appendChild(buildTable(%%parmsInErrorJson%%));
+			(document.getElementsByTagName('table')[0]).style="border-spacing: 15px; border:thick solid #FF0000";
+		</script>
+
+		<br/><b>Error ID:</b> %%sanwafTrackingId%%
+		<br/><br/>
+		<a href="javascript:history.back()">Go Back</a>
+		<br/>
+	    <h6 id="top" style="text-align: center;">Version: 0.0.1<BR>&copy; 2021 Bernardo Sanchez (bernardo.toronto@owasp.org)</h6>
+	</body>
+</html>
