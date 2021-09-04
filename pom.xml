@@ -6,7 +6,7 @@
 	<groupId>com.sanwaf</groupId>
 	<artifactId>sanwaf-sample</artifactId>
 	<name>Sanwaf-Sample (using Jetty)</name>
-	<version>1.6</version>
+	<version>1.7</version>
 
 	<prerequisites>
 		<maven>3.0</maven>
