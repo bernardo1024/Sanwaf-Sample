@@ -1,37 +1,36 @@
-var _table_ = document.createElement('table');
-var _tr_ = document.createElement('tr');
-var _th_ = document.createElement('th');
-var _td_ = document.createElement('td');
-
-function buildTable(json){
-	var table = _table_.cloneNode();
-	var columns = addColHeaders(json, table);
-	for(var i = 0, maxi = json.length; i < maxi; ++i){
-		var tr = _tr_.cloneNode();
-		for(var j = 0, maxj = columns.length; j < maxj; ++j) {
-			var td = _td_.cloneNode(); 
-			cellValue = json[i][columns[j]];
-			td.appendChild(document.createTextNode(json[i][columns[j]] || ''));
-			tr.appendChild(td);
-		}
-		table.appendChild(tr);
+function buildTable(json) {
+	if (!json || json.length == 0) {
+		return "A non-parameter error was detected<br/><br/>";
 	}
+	var table = "<table><tr><td><b>Parameter</b></td><td><b>Value</b></td><td><b>Error Message</b></td></tr>";
+
+	for (var i = 0; i < json.length; i++) {
+		table = table + "<tr><td style='vertical-align:top;'>"
+				+ json[i].key + "</td><td style='vertical-align:top;'>"
+				+ prettifyValue(json[i].value, json[i].samplePoints)
+				+ "</td><td style='vertical-align:top;'>"
+				+ json[i].error + "</td></tr>";
+	}
+	table = table + "</table>";
 	return table;
 }
 
-function addColHeaders(json, table){
-	var columnSet = []
-	var tr = _tr_.cloneNode(false);
-	for(var i = 0, l = json.length; i < l; i++){
-		for(var key in json[i]){
-			if(json[i].hasOwnProperty(key) && columnSet.indexOf(key) === -1){
-				columnSet.push(key);
-				var th = _th_.cloneNode(false);
-				th.appendChild(document.createTextNode(key));
-				tr.appendChild(th);
-			}
-		}
+function prettifyValue(value, points) {
+	if (points.length <= 0) {
+		return value;
 	}
-	table.appendChild(tr);
-	return columnSet;
+	var offset = 0;
+	var start = "";
+	var mid = "";
+	var end = "";
+	for (var i = 0; i < points.length; i++) {
+		var startPos = parseInt(points[i].start) + parseInt(offset);
+		var endPos = parseInt(points[i].end) + parseInt(offset);
+		var start = value.substring(0, startPos);
+		var mid = value.substring(startPos, endPos);
+		var end = value.substring(endPos, value.length + offset);
+		value = start + "<mark>" + mid + "</mark>" + end;
+		offset += "<mark></mark>".length;
+	}
+	return value;
 }

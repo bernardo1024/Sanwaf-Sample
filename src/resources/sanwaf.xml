@@ -20,6 +20,7 @@
 			<alphanumericAndMore><![CDATA[Only alphanumeric characters and special characters: <i>{0}</i> are permitted]]></alphanumericAndMore>
 			<constant><![CDATA[Invalid value provided,&nbsp;value must be one of: <i>{0}</i>]]></constant>
 			<string><![CDATA[Invalid text provided]]></string>
+			<open><![CDATA[Invalid text provided]]></open>
 			<regex><![CDATA[Invalid value provided]]></regex>
 			<java><![CDATA[Invalid value provided]]></java>
 			<format><![CDATA[Failed to conform to format: {0}]]></format>
@@ -76,29 +77,30 @@
 <uri>/submit/test.html</uri>
 <strict>less</strict>
 <items>
-<item><name>char</name><type>c</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>numeric</name><type>n</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>numericMaxMin</name><type>n</type><max></max><min></min><max-value>12</max-value><min-value>1</min-value><msg></msg><req></req><related></related></item>
-<item><name>numericdelimited</name><type>n{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>integer</name><type>i</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>integerdelimited</name><type>i{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>alphanumeric</name><type>a</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>alphanumericandmore</name><type>a{'\s!}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>constant</name><type>k{y,n}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>regex</name><type>x{^[^\s@]+@[^\s@]+$}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg>Must be a proper email address</msg><req></req><related></related></item>
-<item><name>format</name><type>f{(###) ###-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>formatRangeRestricted</name><type>f{#[1-12] / #[21-35]}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>formatNumberRestricted</name><type>f{#[3,4,5,6]###-####-####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>formatMultiple</name><type>f{#####||#####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>dependentFormatParent</name><type>k{USA,Canada}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>dependentFormatChild</name><type>d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}</type><max></max><min></min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>equalityParent</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related></related></item>
-<item><name>equalityChild</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><msg></msg><req></req><related>equalityParent:=</related></item>
-<item><name>dependencyParent</name><type>k{Yes,No}</type><max></max><min></min><msg></msg><related></related></item>
-<item><name>dependencyChild</name><type>s</type><max>30</max><min>0</min><msg>Must be entered if Parent is enered</msg><related>dependencyParent:Yes</related></item>
-<item><name>required</name><type>s</type><max>30</max><min>1</min><req>true</req></item>
+<item><name>char</name><type>c</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>numeric</name><type>n</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>numericMaxMin</name><type>n</type><max></max><min></min><max-value>12</max-value><min-value>1</min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>numericdelimited</name><type>n{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>integer</name><type>i</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>integerdelimited</name><type>i{,}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>alphanumeric</name><type>a</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>alphanumericandmore</name><type>a{'\s!}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>constant</name><type>k{y,n}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>regex</name><type>x{^[^\s@]+@[^\s@]+$}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg>Must be a proper email address</msg><format></format><req></req><related></related></item>
+<item><name>format</name><type>f{(###) ###-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>formatRangeRestricted</name><type>f{#[1-12] / #[21-35]}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>formatNumberRestricted</name><type>f{#[3,4,5,6]###-####-####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>formatMultiple</name><type>f{#####||#####-####}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>dependentFormatParent</name><type>k{USA,Canada}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>dependentFormatChild</name><type>d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>equalityParent</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>equalityChild</name><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related>equalityParent:=</related></item>
+<item><name>dependencyParent</name><type>k{Yes,No}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req></req><related></related></item>
+<item><name>dependencyChild</name><type>s</type><max>30</max><min>0</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg>Must be entered if Parent is enered</msg><format></format><req></req><related>dependencyParent:Yes</related></item>
+<item><name>required</name><type>s</type><max>30</max><min>0</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><format></format><req>true</req><related></related></item>
 </items>
 </endpoint>
+
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-END~~~ -->
 					</endpoints>
 					<parameters>
@@ -113,3 +115,4 @@
 
 	</shields>
 </sanwaf>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
