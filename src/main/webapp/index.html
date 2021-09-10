@@ -59,7 +59,7 @@
     </div>
     
     <!-- Sanwaf-ui code - STEP 4. add sanwaf attributes (data-sw-*) to configure elements;  -->
-    <form id="testform" method="post" action="submit/test.html">
+    <form id="testform" method="post" action="/submit/test.html">
       <table class="table-instructions">
         <tr>
           <td><b>Data Type</b></td>
@@ -153,20 +153,20 @@
         </tr>
 
         <tr>
-          <td><label for="dependentFormatParent">Dependent Format Parent</label></td>  
-          <td><select name="dependentFormatParent" id="dependentFormatParent" data-sw-display="Dependent Format Parent" data-sw-type="k{USA,Canada}"><option value="USA">USA</option><option value="Canada">Canada</option></select></td>
+          <td><label for="dependentFormatParent">Dependency Format Parent</label></td>  
+          <td><select name="dependentFormatParent" id="dependentFormatParent" data-sw-display="Dependency Format Parent" data-sw-type="k{USA,Canada}"><option value="USA">USA</option><option value="Canada">Canada</option></select></td>
           <td><b></b></td>
           <td>The parent value determines the format to be used on the child (see below)</td>
         </tr>
         <tr>
-          <td><label for="dependentFormatChild">Dependent Format Child</label></td>  
-          <td><input type="text" id="dependentFormatChild" name="dependentFormatChild" size="20" data-sw-display="Dependent Format Child" data-sw-type="d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}" /></td>
+          <td><label for="dependentFormatChild">Dependency Format Child</label></td>  
+          <td><input type="text" id="dependentFormatChild" name="dependentFormatChild" size="20" data-sw-display="Dependency Format Child" data-sw-type="d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}" /></td>
           <td><b></b></td>
           <td>If the Parent is USA, format will be ##### or #####-####; if Parent is Canada, format will be: A#A-#A#<br/>data-sw-type = "d{dependentFormatParent:USA=#####||#####-####;Canada=A#A-#A#}"</td>
         </tr>
        	<tr>
           <td><label for="equalityParent">Equality Relationship<br/>(parent)</label></td>
-          <td><input type="text" id="equalityParent" name="equalityParent" size="20" data-sw-display="Parent" data-sw-type="s" data-sw-max-length="10" data-sw-min-length="4" /></td>
+          <td><input type="text" id="equalityParent" name="equalityParent" size="20" data-sw-display="Equality Relationship Parent" data-sw-type="s" data-sw-max-length="10" data-sw-min-length="4" /></td>
           <td><b></b></td>
           <td>If parent entered, child must have the same value<br/>data-sw-type = "s" data-sw-min-length = "4" data-sw-max-length = "10"</td>
         </tr>
@@ -178,7 +178,7 @@
         </tr>
         <tr>
           <td><label for="dependencyParent">Dependency Relationship<br/>(parent)</label></td>
-          <td><select size="1" id="dependencyParent" name="dependencyParent" data-sw-display="Dependency Relationship Parent" data-sw-type="k{Yes,No}" ><option value="Yes">Yes</option><option value="No">No</option></select></td>
+          <td><select size="1" id="dependencyParent" name="dependencyParent" data-sw-display="Dependency Relationship Parent" data-sw-type="k{Yes,No}" ><option value="Yes">Yes</option><option value="No" selected="selected">No</option></select></td>
           <td><b></b></td>
           <td>If value selected = &quot;yes&quot; Child must be entered<br/></td>
         </tr>

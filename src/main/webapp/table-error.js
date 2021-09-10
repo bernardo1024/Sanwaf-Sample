@@ -6,7 +6,7 @@ function buildTable(json) {
 
 	for (var i = 0; i < json.length; i++) {
 		table = table + "<tr><td style='vertical-align:top;'>"
-				+ json[i].key + "</td><td style='vertical-align:top;'>"
+				+ json[i].display + "</td><td style='vertical-align:top;'>"
 				+ prettifyValue(json[i].value, json[i].samplePoints)
 				+ "</td><td style='vertical-align:top;'>"
 				+ json[i].error + "</td></tr>";
