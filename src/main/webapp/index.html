@@ -215,7 +215,7 @@
     <script>
       function togleDisplayType(refresh){
         var att = document.createAttribute("data-sw-errorActions");
-        att.value = "";
+        att.value = " ";
         if(document.getElementById("hoverOnLabel").checked){ att.value += "hoverOnLabel,"; }
         if(document.getElementById("hoverShowLabel").checked){ att.value += "hoverShowLabel,"; }
         if(document.getElementById("colorLabel").checked){ att.value += "colorLabel,"; }
@@ -231,7 +231,7 @@
         document.getElementById("sanwafUiConfig").setAttributeNode(att);
 
         att = document.createAttribute("data-sw-blurActions");
-        att.value = "";
+        att.value = " ";
         if(document.getElementById("hoverOnLabel").checked){ att.value += "hoverOnLabel,"; }
         if(document.getElementById("hoverShowLabel").checked){ att.value += "hoverShowLabel,"; }
         if(document.getElementById("colorLabel").checked){ att.value += "colorLabel,"; }
@@ -245,15 +245,15 @@
     <h3>Change Sanwaf-ui Error Behavior</h3>
     <table class="table-compact">
       <tr>
-        <td><input type="checkbox" id="hoverOnLabel" onClick="togleDisplayType(true)" checked/>hover on Label</td>
-        <td><input type="checkbox" id="colorLabel" onClick="togleDisplayType(true)" checked/>color label</td>
-        <td><input type="checkbox" id="showOnPageSanwafTable" onClick="togleDisplayType(false)" />Show Error on page</td>
-        <td><input type="checkbox" id="alertWithPopup" onClick="togleDisplayType(false)" />alert with popup <br/></td>
-        <td>&nbsp;&nbsp;<input type="checkbox" id="sanwafUi" onClick="togleDisplayType(false)" checked/>Enable Sanwaf-UI</td>
+        <td><input type="checkbox" id="hoverOnLabel" onClick="togleDisplayType(true)" checked/><label for="hoverOnLabel">hover on Label</label></td>
+        <td><input type="checkbox" id="colorLabel" onClick="togleDisplayType(true)" checked/><label for="colorLabel">color label</label></td>
+        <td><input type="checkbox" id="showOnPageSanwafTable" onClick="togleDisplayType(false)" /><label for="showOnPageSanwafTable">Show Error on page</label></td>
+        <td><input type="checkbox" id="alertWithPopup" onClick="togleDisplayType(false)" /><label for="alertWithPopup">alert with popup</label><br/></td>
+        <td>&nbsp;&nbsp;<input type="checkbox" id="sanwafUi" onClick="togleDisplayType(false)" checked/><label for="sanwafUi">Enable Sanwaf-UI</label></td>
       </tr>
       <tr>
-        <td><input type="checkbox" id="hoverShowLabel" onClick="togleDisplayType(true)" checked/>hover include label</td>
-        <td><input type="checkbox" id="colorInput" onClick="togleDisplayType(true)" checked/>color input</td>
+        <td><input type="checkbox" id="hoverShowLabel" onClick="togleDisplayType(true)" checked/><label for="hoverShowLabel">hover include label</label></td>
+        <td><input type="checkbox" id="colorInput" onClick="togleDisplayType(true)" checked/><label for="colorInput">color input</label></td>
         <td></td>
         <td></td>
 		<td></td>
