@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style>*{Background:#322f2f;color:#d3d0d0;font-family:Arial;}</style> 
+  </head>
+  <body>
+    <h1>Sanwaf-UI &amp; HTML5</h1>
+    <form id="form" method="post" action="/submit/html5.html">
+      <table>
+        <tr>
+          <td><b>HTML5 Type/Attribute</b></td>
+          <td><b>Input</b></td>
+        </tr>
+        <tr>
+          <td><label for="email">type="email"</label></td>
+          <td><input type="email" id="email" name="email" size="20" /></td>
+        </tr>
+        <tr>
+          <td><label for="url">type="url"</label></td>
+          <td><input type="url" id="url" name="url" size="20" /></td>
+        </tr>
+        <tr>
+          <td><label for="number">type="number"</label></td>
+          <td><input type="number" id="number" name="number" size="20" /></td>
+        </tr>
+        <tr>
+          <td><label for="tel">type="tel"</label></td>
+          <td><input type="tel" id="tel" name="tel" size="20" /></td>
+        </tr>
+        <tr>
+          <td><label for="attMinMaxLength">Attribute minlength="5" maxlength="10"</label></td>
+          <td><input type="text" id="attMinMaxLength" name="attMinMaxLength" minlength="5" maxlength="10" size="20" /></td>
+        </tr>
+        <tr>
+          <td><label for="attMinMax">Attribute min="0" max="100"</label></td>
+          <td><input type="number" id="attMinMax" name="attMinMax" size="20" min="0" max="100" /></td>
+        </tr>
+        <tr>
+          <td><label for="pattern">Attribute pattern="[a-zA-Z][a-zA-Z0-9-_]{4,24}"</label></td>
+          <td><input type="text" id="pattern" name="pattern" size="20" pattern="[a-zA-Z][a-zA-Z0-9-_]{4,24}" /></td>
+        </tr>
+        <tr>
+          <td><label for="required">Attribute required</label></td>
+          <td><input type="text" id="required" name="required" size="20" required /></td>
+        </tr>
+        <tr>
+          <td></td><td><input type="submit" value="Validate" onClick="if(document.getElementById('useSanwaf').checked){return }"/></td>
+        </tr>
+      </table>
+    </form>
+    <label for="useJS">Enable Sanwaf-UI</label><input type="checkbox" id="useSanwaf" checked /> 
+  </body>
+  <script>initSanwafui()</script>
+</html>

@@ -3,8 +3,8 @@
     <style>*{Background:#322f2f;color:#d3d0d0;font-family:Arial;}</style> 
   </head>
   <body>
-    <h1 id="top">Demo 1 - Sanwaf-UI</h1>
-    <form id="demo1" method="post" action="/submit/demo1.html">
+    <h1>Demo 2 - Build HTML Page with Sanwaf-UI Attributes</h1>
+    <form id="form" method="post" action="/submit/demo1.html">
       <table>
         <tr>
           <td><label for="uid">User Name</label></td>
@@ -12,21 +12,22 @@
         </tr>
         <tr>
           <td><label for="pass1">Password</label></td>
-          <td><input type="text" name="pass1" size="20" /></td>
+          <td><input type="password" name="pass1" size="20" /></td>
         </tr>
         <tr>
           <td><label for="pass2">Confirm Password</label></td>
-          <td><input type="text" name="pass2" size="20" /></td>
+          <td><input type="password" name="pass2" size="20" /></td>
         </tr>
         <tr>
           <td><label for="ip">Home IP Address</label></td>
           <td><input type="text" name="ip" size="20" /></td>
         </tr>
         <tr>
-          <td></td><td><input type="submit" value="Validate" /></td>
+          <td></td><td><input type="submit" value="Validate" onClick="if(document.getElementById('useSanwaf').checked){return }"/></td>
         </tr>
       </table>
     </form>
-	<label for="useJS">Enable JavaScript</label><input type="checkbox" id="useJS" checked /> 
+    <label for="useJS">Enable Sanwaf-UI</label><input type="checkbox" id="useSanwaf" checked /> 
   </body>
+  <script>initSanwafui()</script>
 </html>
