@@ -77,6 +77,29 @@
 					<endpoints>
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-START~~~ -->
 <endpoint>
+<uri>/submit/demo2.html</uri>
+<strict>less</strict>
+<items>
+<item><name>pass1</name><display>Password</display><type>o</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>pass2</name><display>Confirm Password</display><type>o</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
+</items>
+</endpoint>
+<endpoint>
+<uri>/submit/demo3.html</uri>
+<strict>less</strict>
+<items>
+<item><name>email</name><display>type="email"</display><type>x{[^@\s]+@[^@\s]+\.[^@\s]+}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>url</name><display>type="url"</display><type>x{https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>number</name><display>type="number"</display><type>n</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>tel</name><display>type="tel"</display><type>x{\(?(\d{3})\)?[-\.\s]?(\d{3})[-\.\s]?(\d{4})}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>password</name><display>type="password"</display><type>o</type><max>30</max><min>8</min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>attMinMaxLength</name><display>Attribute minlength="5" maxlength="10"</display><type>s</type><max>10</max><min>5</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>attMinMax</name><display>Attribute min="0" max="100"</display><type>n</type><max></max><min></min><max-value>100</max-value><min-value>0</min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>pattern</name><display>Attribute pattern="[a-zA-Z][a-zA-Z0-9-_]{4,24}"</display><type>x{[a-zA-Z][a-zA-Z0-9-_]{4,24}}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>required</name><display>Attribute required</display><type>s</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>true</req><related></related></item>
+</items>
+</endpoint>
+<endpoint>
 <uri>/submit/test.html</uri>
 <strict>less</strict>
 <items>
@@ -116,3 +139,4 @@
 
 	</shields>
 </sanwaf>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
