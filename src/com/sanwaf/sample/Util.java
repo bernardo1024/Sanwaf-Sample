@@ -29,7 +29,7 @@ public class Util {
       if (read < 0) {
         break;
       }
-      sb.append(new String(data));
+      sb.append(new String(data).trim());
       data = new byte[1024];
     }
     is.close();
