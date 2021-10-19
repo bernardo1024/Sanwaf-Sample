@@ -43,6 +43,6 @@
 
 4. if you edit update any sanwaf attributes on the html sample pages, you will need to run the sanwaf-ui-2-server mvn command, then restart jetty
 
-	mvn exec:exec
+        mvn exec:exec
 
 if you experience any exception relating to the sanwaf-server dependency, see the readme.md in the Sanwaf-Server project for instructions on cloning and installing the jar to your local maven repo
