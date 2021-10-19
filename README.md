@@ -41,7 +41,7 @@
 
         http://127.0.0.1:8080
 
-4. if you edit update any sanwaf attributes on the html sample pages, you will need to run the sanwaf-ui-2-server mvn command, then restart jetty
+4. if you update sanwaf attributes on html sample pages, you will need to run the sanwaf-ui-2-server mvn command, then restart jetty
 
         mvn exec:exec
 
