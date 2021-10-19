@@ -27,7 +27,7 @@
        - Dynamically configure and test Sanwaf-UI 
        - Dynamically disable Browser Validation and run against Server (uses embedded Jetty)
 
-# SanWaf Sample Application
+# Sanwaf Sample Application
 
 1. Build the application
 
