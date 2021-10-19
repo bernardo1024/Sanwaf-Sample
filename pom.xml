@@ -17,6 +17,7 @@
 		<apache.tomcat.version>7.0.59</apache.tomcat.version>
 		<sanwaf.version>0.1.7</sanwaf.version>
 		<owasp.encoder.version>1.2.2</owasp.encoder.version>
+		<exec.version>3.0.0</exec.version>
 	</properties>
 	
 	<dependencies>
@@ -35,7 +36,8 @@
 			<groupId>com.sanwaf</groupId>
 			<artifactId>sanwaf</artifactId>
 			<version>${sanwaf.version}</version>
-			<scope>compile</scope>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/sanwaf-0.1.7.jar</systemPath>
 		</dependency>
 		<dependency>
     		<groupId>org.owasp.encoder</groupId>
@@ -68,6 +70,24 @@
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
 					<version>9.4.6.v20170531</version>
+				</plugin>
+				<plugin>
+				  <groupId>org.codehaus.mojo</groupId>
+				  <artifactId>exec-maven-plugin</artifactId>
+				  <version>${exec.version}</version>
+				  <executions>
+				    <execution>
+				      <id>sanwaf-ui-2-server</id>
+				      <phase>compile</phase>
+				      <goals>
+ 				        <goal>exec</goal>
+				      </goals>
+				    </execution>
+				  </executions>
+			      <configuration>
+					<executable>java</executable>
+					<commandlineArgs>-cp ./sanwaf-ui-2-server/* com.sanwaf.util.GenerateXml --path:./src/main/webapp --extensions:.html --output:true --html5:true --file:./src/resources/sanwaf.xml --endpoints:true --append:false --strict:less</commandlineArgs>
+			      </configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

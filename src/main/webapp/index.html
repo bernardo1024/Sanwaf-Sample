@@ -45,8 +45,8 @@
   </head>
 
     <!-- Sanwaf-ui code - STEP 3. configure sanwaf-ui -->
-    <div id="sanwafUiConfig" style="display:none"
-      data-sw-errorActions="hoverOnLabel,hoverShowLabel,colorLabel,colorInput"
+    <div id="sanwaf-ui-config" style="display:none"
+      data-sw-error-actions="hoverOnLabel,hoverShowLabel,colorLabel,colorInput"
     ></div>
     
   <body>
@@ -214,7 +214,7 @@
    
     <script>
       function togleDisplayType(refresh){
-        var att = document.createAttribute("data-sw-errorActions");
+        var att = document.createAttribute("data-sw-error-actions");
         att.value = " ";
         if(document.getElementById("hoverOnLabel").checked){ att.value += "hoverOnLabel,"; }
         if(document.getElementById("hoverShowLabel").checked){ att.value += "hoverShowLabel,"; }
@@ -222,21 +222,21 @@
         if(document.getElementById("colorInput").checked){ att.value += "colorInput,"; }
         if(document.getElementById("showOnPageSanwafTable").checked){ att.value += "showOnPageSanwafTable,"; }
         if(document.getElementById("alertWithPopup").checked){ att.value += "alertWithPopup"; }
-        if(!document.getElementById("sanwafUiConfig")){
+        if(!document.getElementById("sanwaf-ui-config")){
           var div = document.createElement('div');
-          div.id = 'sanwafUiConfig';
+          div.id = 'sanwaf-ui-config';
           div.style="display:none"
           document.getElementsByTagName('body')[0].appendChild(div);
         }
-        document.getElementById("sanwafUiConfig").setAttributeNode(att);
+        document.getElementById("sanwaf-ui-config").setAttributeNode(att);
 
-        att = document.createAttribute("data-sw-blurActions");
+        att = document.createAttribute("data-sw-blur-actions");
         att.value = " ";
         if(document.getElementById("hoverOnLabel").checked){ att.value += "hoverOnLabel,"; }
         if(document.getElementById("hoverShowLabel").checked){ att.value += "hoverShowLabel,"; }
         if(document.getElementById("colorLabel").checked){ att.value += "colorLabel,"; }
         if(document.getElementById("colorInput").checked){ att.value += "colorInput,"; }
-        document.getElementById("sanwafUiConfig").setAttributeNode(att);
+        document.getElementById("sanwaf-ui-config").setAttributeNode(att);
         if(refresh){
         	isSanwafUiFormValid(testform);
         }
@@ -260,10 +260,17 @@
       </tr>
     </table>
     <br/>
-    &nbsp;&nbsp;For addition Sanwaf UI documentation: <a href="https://bernardo1024.github.io/" target="_blank">Sanwaf UI Help</a>
+    <h2>Sanwaf Documentation</h2>
+    <table>
+      <tr><td><a href="https://github.com/bernardo1024/Sanwaf-Server" target="_blank">Sanwaf-Server</a></td></tr>
+      <tr><td><a href="https://github.com/bernardo1024/Sanwaf-UI" target="_blank">Sanwaf-UI</a></td></tr>
+      <tr><td><a href="https://bernardo1024.github.io/" target="_blank">Sanwaf-UI Guide</a></td></tr>
+      <tr><td><a href="https://bernardo1024.github.io/sanwaf-ui-attribute-builder.html" target="_blank">Sanwaf-UI Attribute Builder</a></td></tr>
+      <tr><td><a href="https://github.com/bernardo1024/Sanwaf-UI-2-Server" target="_blank">Sanwaf-UI-2-Server</a></td></tr>
+    </table>
     <br/>
     <h6 id="top">Version: 0.0.1 - &copy; 2021 Bernardo Sanchez (bernardo.toronto@owasp.org)</h6>
-    
+
     <!-- sanwaf-ui code - STEP 6. initialize sanwaf-ui (sets event listeners) -->
     <script> initSanwafui(); </script>
   </body>
