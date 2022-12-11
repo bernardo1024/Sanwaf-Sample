@@ -6,7 +6,7 @@
 	<groupId>com.sanwaf</groupId>
 	<artifactId>sanwaf-sample</artifactId>
 	<name>Sanwaf-Sample (using Jetty)</name>
-	<version>1.7</version>
+	<version>1.10</version>
 
 	<prerequisites>
 		<maven>3.0</maven>
@@ -15,7 +15,7 @@
 	<properties>
 		<jetty.version>9.4.6.v20170531</jetty.version>
 		<apache.tomcat.version>7.0.59</apache.tomcat.version>
-		<sanwaf.version>0.1.7</sanwaf.version>
+		<sanwaf.version>0.1.10</sanwaf.version>
 		<owasp.encoder.version>1.2.2</owasp.encoder.version>
 		<exec.version>3.0.0</exec.version>
 	</properties>
@@ -37,7 +37,7 @@
 			<artifactId>sanwaf</artifactId>
 			<version>${sanwaf.version}</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/sanwaf-0.1.7.jar</systemPath>
+			<systemPath>${project.basedir}/lib/sanwaf-0.1.10.jar</systemPath>
 		</dependency>
 		<dependency>
     		<groupId>org.owasp.encoder</groupId>

@@ -10,10 +10,10 @@
 			var table = "<table><tr><td><b>Parameter</b></td><td><b>Value</b></td><td><b>Error Message</b></td></tr>";
 				for (var i = 0; i < json.length; i++) {
 				table = table + "<tr><td style='vertical-align:top;'>"
-						+ json[i].display + "</td><td style='vertical-align:top;'>"
-						+ prettifyValue(json[i].value, json[i].samplePoints)
+						+ json[i].item.display + "</td><td style='vertical-align:top;'>"
+						+ prettifyValue(json[i].item.value, json[i].item.samplePoints)
 						+ "</td><td style='vertical-align:top;'>"
-						+ json[i].error + "</td></tr>";
+						+ json[i].item.error + "</td></tr>";
 			}
 			table = table + "</table>";
 			return table;

@@ -184,15 +184,21 @@
         </tr>
         <tr>
           <td><label for="dependencyChild">Dependency Relationship<br/>(child)</label></td>
-          <td><input type="text" id="dependencyChild" name="dependencyChild" size="20" data-sw-display="Dependency Relationship Chid" data-sw-type="s" data-sw-max-length="30" data-sw-min-length="0" data-sw-related="dependencyParent:Yes" data-sw-err-msg="Must be entered if Parent is enered" /></td>
+          <td><input type="text" id="dependencyChild" name="dependencyChild" size="20" data-sw-display="Dependency Relationship Child" data-sw-type="s" data-sw-max-length="30" data-sw-min-length="0" data-sw-related="dependencyParent:Yes" data-sw-err-msg="Must be entered if Parent is entered" /></td>
           <td><b></b></td>
           <td>If Parent =  &quot;yes&quot;, Child becomes required<br/>data-sw-related = "dependencyParent:Yes"</td>
+        </tr>
+        <tr>
+          <td><label for="string">String</label></td>
+          <td><input type="text" id="string" name="string" size="20" data-sw-type="s" data-sw-max-length="10" data-sw-min-length="3" /></td>
+          <td><b></b></td>
+          <td>String that must be between 3-10 chars in length</td>
         </tr>
         <tr>
           <td><label for="required">Required</label></td>
           <td><input type="text" id="required" name="required" size="20" data-sw-display="Required" data-sw-type="s" data-sw-required="true" data-sw-max-length="30" data-sw-min-length="0" /></td>
           <td><b></b></td>
-          <td>Is a requried field<br/>data-sw-required = "true"</td>
+          <td>Is a required field<br/>data-sw-required = "true"</td>
         </tr>
         <tr>
           <td></td>
@@ -271,7 +277,7 @@
     <br/>
     <h6 id="top">Version: 0.0.1 - &copy; 2021 Bernardo Sanchez (bernardo.toronto@owasp.org)</h6>
 
-    <!-- sanwaf-ui code - STEP 6. initialize sanwaf-ui (sets event listeners) -->
+    <!-- sanwaf-ui code - STEP 6. initialize sanwaf-ui (sets event listeners)--> 
     <script> initSanwafui(); </script>
   </body>
 </html>

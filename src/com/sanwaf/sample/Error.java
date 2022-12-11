@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.sanwaf.core.Sanwaf;
 
 public class Error {
-  public static void handle(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  public static void handle(Sanwaf sanwaf, HttpServletRequest request, HttpServletResponse response) throws IOException {
     String sanwafTrackingId = Sanwaf.getTrackingId(request);
-    String parmsInErrorJson = Sanwaf.getErrors(request);
+    String parmsInErrorJson = sanwaf.getAllErrors(request);
     String html = Util.readFile(Error.class.getResource("/error.html").openStream());
     html = Util.replaceKey(html, "%%sanwafTrackingId%%", sanwafTrackingId);
     html = Util.replaceKey(html, "%%parmsInErrorJson%%", parmsInErrorJson);

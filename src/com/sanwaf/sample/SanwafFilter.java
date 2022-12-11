@@ -34,7 +34,7 @@ public class SanwafFilter implements Filter {
 
     if (request.getParameterNames() != null && request.getParameterNames().hasMoreElements()) {
       if (sanwaf.isThreatDetected(request)) {
-        Error.handle(request, response);
+        Error.handle(sanwaf, request, response);
       } else {
         Success.handle(response);
       }

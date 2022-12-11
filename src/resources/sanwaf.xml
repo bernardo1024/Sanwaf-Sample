@@ -5,11 +5,16 @@
 	<global-settings>
 		<enabled>true</enabled>
 		<verbose>true</verbose>
-		<app.version>Sanwaf-Sample-1.5</app.version>
+		<app.version>Sanwaf-Sample-1.10</app.version>
 
 		<errorHandling>
 			<provideTrackId>true</provideTrackId>
-			<provideErrors>true</provideErrors>
+		    <provideErrors>true</provideErrors>
+		    <logErrors>true</logErrors>
+		    <logErrorsVerbose>true</logErrorsVerbose>
+		    <provideDetects>true</provideDetects>
+		    <logDetects>true</logDetects>
+		    <logDetectsVerbose>true</logDetectsVerbose>
 		</errorHandling>
 
 		<errorMessages>
@@ -27,8 +32,8 @@
 			<java><![CDATA[Invalid value provided]]></java>
 			<format><![CDATA[Failed to conform to format: {0}]]></format>
 			<dependentFormat><![CDATA[Failed to conform to dependent format: {0}]]></dependentFormat>
-			<invalidLength><![CDATA[  <br/>Invalid length. Must be between {0} and {1} characters]]></invalidLength>
-			<required><![CDATA[  <br/>Is a Required field]]></required>
+			<invalidLength><![CDATA[ - invalid length, must be between {0} and {1} characters]]></invalidLength>
+			<required><![CDATA[ - is a required field]]></required>
 		</errorMessages>
 	</global-settings>
 
@@ -36,24 +41,17 @@
 		<shield>
 			<shield-settings>
 				<name>XSS</name>
-				<minLen>0</minLen>
-				<maxLen>-1</maxLen>
+				<mode>block</mode>
+				<minLen>0</minLen><maxLen>-1</maxLen>
 				<child></child>
 			</shield-settings>
 
 			<regex-config>
 				<minLen>3</minLen>
-				<alwaysPerformRegex>
-					<enabled>false</enabled>
-					<exclusions>
-						<item></item>
-					</exclusions>
-				</alwaysPerformRegex>
-				<autoRunPatterns>
-					<item><key>javascriptExpression</key> <value><![CDATA[(?:(?:(?:^)|(?:=|"|'|(?:%(?:2[27]|3D))))|(?:\s|%20)+)(?:(?:j|%[46]a)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:a|%[46]1)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:v|%[57]6)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:a|%[46]1)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:s|%[57]3)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:c|%[46]3)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:r|%[57]2)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:i|%[46]9)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:p|%[57]0)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:t|%[57]4)(?:(?:&|%26)(?:.)*?(?:;|%3b))*?(?:\:|%3a)|(?:v|%[57]6)(?:b|%[46]2)(?:s|%[57]3)(?:c|%[46]3)(?:r|%[57]2)(?:i|%[46]9)(?:p|%[57]0)(?:t|%[57]4)|(?:e|%[64]5)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:x|%[75]8)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:p|%[75]0)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:r|%[75]2)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:e|%[64]5)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:s|%[75]3)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:s|%[75]3)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:i|%[64]9)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:o|%[64]f)(?:(?:\/|%2f)(?:\*|%2a).*?(?:\*|%2a)(?:\/|%2f))*?(?:n|%[64]e)(?:\(|%28))]]></value></item>
-					<item><key>xss-form-elements</key> <value><![CDATA[(?:(?:<|(?:\\|%5C)(?:0|(?:%30)){0,1}(?:7|%37)(?:4|%34)|(?:%|(?:\\|%5C)(?:(?:x|%[75]8)|(?:(?:(?:u)|(?:%)[75]5)(?:0|(?:%30)){2})))3c)|(?:<|(?:\\|%5C)(?:0|(?:%30)){0,1}(?:7|%37)(?:4|%34)|(?:%|(?:\\|%5C)(?:(?:x|%[75]8)|(?:(?:(?:u)|(?:%)[75]5)(?:0|(?:%30)){2})))3c)(?:\/|(?:\\|%5C)(?:0|(?:%30)){0,1}(?:5|%35)(?:7|%37)|(?:%|(?:\\|%5C)(?:(?:x|%[75]8)|(?:(?:(?:u)|(?:%)[75]5)(?:0|(?:%30)){2})))2f))(?:[^\s\/]{1}.+)(?:>|(?:\\|%5C)(?:0|(?:%30)){0,1}(?:7|%37)(?:6|%36)|(?:%|(?:\\|%5C)(?:(?:x|%[75]8)|(?:(?:(?:u)|(?:%)[75]5)(?:0|(?:%30)){2})))3e)]]></value></item>
-				</autoRunPatterns>
-
+				<stringPatterns>
+					<item><key>javascriptExpression</key><mode>block</mode><value>file=/sanwaf-regex.xml|javascriptExpression</value></item>
+					<item><key>xss-form-elements</key><value>file=/sanwaf-regex.xml|xss-form-elements</value></item>
+				</stringPatterns>
 				<customPatterns>
 				</customPatterns>
 			</regex-config>
@@ -77,14 +75,6 @@
 					<endpoints>
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-START~~~ -->
 <endpoint>
-<uri>/submit/demo2.html</uri>
-<strict>less</strict>
-<items>
-<item><name>pass1</name><display>Password</display><type>o</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
-<item><name>pass2</name><display>Confirm Password</display><type>o</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
-</items>
-</endpoint>
-<endpoint>
 <uri>/submit/demo3.html</uri>
 <strict>less</strict>
 <items>
@@ -97,6 +87,14 @@
 <item><name>attMinMax</name><display>Attribute min="0" max="100"</display><type>n</type><max></max><min></min><max-value>100</max-value><min-value>0</min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
 <item><name>pattern</name><display>Attribute pattern="[a-zA-Z][a-zA-Z0-9-_]{4,24}"</display><type>x{[a-zA-Z][a-zA-Z0-9-_]{4,24}}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
 <item><name>required</name><display>Attribute required</display><type>s</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>true</req><related></related></item>
+</items>
+</endpoint>
+<endpoint>
+<uri>/submit/demo2.html</uri>
+<strict>less</strict>
+<items>
+<item><name>pass1</name><display>Password</display><type>o</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
+<item><name>pass2</name><display>Confirm Password</display><type>o</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err>****</mask-err><msg></msg><req>false</req><related></related></item>
 </items>
 </endpoint>
 <endpoint>
@@ -122,7 +120,8 @@
 <item><name>equalityParent</name><display>Equality Relationship Parent</display><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
 <item><name>equalityChild</name><display>Equality Relationship Child</display><type>s</type><max>10</max><min>4</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related>equalityParent:=</related></item>
 <item><name>dependencyParent</name><display>Dependency Relationship Parent</display><type>k{Yes,No}</type><max></max><min></min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
-<item><name>dependencyChild</name><display>Dependency Relationship Chid</display><type>s</type><max>30</max><min>0</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg>Must be entered if Parent is enered</msg><req>false</req><related>dependencyParent:Yes</related></item>
+<item><name>dependencyChild</name><display>Dependency Relationship Child</display><type>s</type><max>30</max><min>0</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg>Must be entered if Parent is entered</msg><req>false</req><related>dependencyParent:Yes</related></item>
+<item><name>string</name><display>String</display><type>s</type><max>10</max><min>3</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>false</req><related></related></item>
 <item><name>required</name><display>Required</display><type>s</type><max>30</max><min>0</min><max-value></max-value><min-value></min-value><mask-err></mask-err><msg></msg><req>true</req><related></related></item>
 </items>
 </endpoint>
@@ -130,14 +129,12 @@
 <!-- ~~~SANWAF-UI-2-SERVER-PLACEHOLDER-END~~~ --> 
 					</endpoints>
 					<parameters>
-					</parameters>
+					<!-- add custom regex here --></parameters>
 					<headers>
-					</headers>
-					<cookies>
+					</headers><cookies>
 					</cookies>
 				</secured>
 			</metadata>
 		</shield>
-
 	</shields>
 </sanwaf>
