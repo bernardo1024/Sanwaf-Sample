@@ -16,7 +16,7 @@
 		<jetty.version>9.4.39.v20210325</jetty.version>
 		<apache.tomcat.version>7.0.59</apache.tomcat.version>
 		<sanwaf.version>0.1.10</sanwaf.version>
-		<owasp.encoder.version>1.2.2</owasp.encoder.version>
+		<owasp.encoder.version>1.2.3</owasp.encoder.version>
 		<exec.version>3.0.0</exec.version>
 	</properties>
 	
